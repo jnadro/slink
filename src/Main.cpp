@@ -13,18 +13,12 @@ void Render()
 	ctx->ClearScreen();
 }
 
-void init()
-{
-}
-
 int main(int argc, char* argv[])
 {
 	Slink::Init(argc, argv);
 	Slink::InitWindow(Width, Height);
 	Slink::RenderFunction(Render);
 	ctx = Slink::InitContext(Slink::RenderContextType::OpenGL);
-
-	init();
 
 	WebCore* web_core = WebCore::Initialize(WebConfig());
 	
