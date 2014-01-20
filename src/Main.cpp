@@ -9,18 +9,8 @@ using namespace Awesomium;
 ID3D11DeviceContextPtr Context = nullptr;
 ID3D11DevicePtr Device = nullptr;
 ID3D11RenderTargetViewPtr BackBufferView = nullptr;
-ID3D11VertexShaderPtr vertexShader = nullptr;
-ID3D11PixelShaderPtr pixelShader = nullptr;
-ID3D11BufferPtr triangle = nullptr;
 
 auto Width = 1280, Height = 720;
-
-struct SimpleVertex
-{
-    XMFLOAT3 Position;
-	XMFLOAT4 Color;
-	XMFLOAT3 Normal;
-};
 
 void Render()
 {
@@ -36,18 +26,6 @@ void Render()
 
 void init()
 {
-	/*
-	vertexShader = Slink::LoadVSBinary(Device, "MeshVS");
-	pixelShader = Slink::LoadPSBinary(Device, "MeshPS");
-
-	SimpleVertex vertices[] =
-    {
-		{XMFLOAT3(0.0f, 0.5f, 0.5f), XMFLOAT4(0.0f, 0.5f, 0.5f, 1.0f), XMFLOAT3(0.0f, 0.5f, 0.5f)},
-		{XMFLOAT3(0.5f, -0.5f, 0.5f), XMFLOAT4(0.0f, 0.5f, 0.5f, 1.0f), XMFLOAT3(0.0f, 0.5f, 0.5f)},
-		{XMFLOAT3(-0.5f, -0.5f, 0.5f), XMFLOAT4(0.0f, 0.5f, 0.5f, 1.0f), XMFLOAT3(0.0f, 0.5f, 0.5f)},
-    };
-	triangle = Slink::CreateVertexBuffer(Device, vertices, 3 * sizeof(SimpleVertex));
-	*/
 }
 
 int main(int argc, char* argv[])
