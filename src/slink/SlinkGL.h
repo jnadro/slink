@@ -1,13 +1,13 @@
-#ifndef SlinkD3D11_h
-#define SlinkD3D11_h
+#ifndef SlinkGL_h
+#define SlinkGL_h
 
 #include "RenderContext.h"
 
 namespace Slink
 {
-	namespace DirectX11
+	namespace OpenGL
 	{
-		class DirectX11RenderContext : public RenderContext
+		class OpenGLRenderContext : public RenderContext
 		{
 		public:
 			virtual void Init(HWND window, unsigned int WindowWidth, unsigned int WindowHeight);
@@ -15,8 +15,6 @@ namespace Slink
 			virtual void SetRenderTarget();
 			virtual void Present();
 		};
-
-		void Init(HWND window, unsigned int WindowWidth, unsigned int WindowHeight);
 	}
 }
 

@@ -7,6 +7,7 @@
 #include "Slink.h"
 #include "SlinkHelpers.h"
 #include "SlinkD3D11.h"
+#include "SlinkGL.h"
 #include "RenderContext.h"
 
 namespace Slink
@@ -65,6 +66,10 @@ namespace Slink
 			ctx = new DirectX11::DirectX11RenderContext();
 			ctx->Init(window, WindowWidth, WindowHeight);
 		}
+		else if (context == RenderContextType::OpenGL) {
+			ctx = new OpenGL::OpenGLRenderContext();
+			ctx->Init(window, WindowWidth, WindowHeight);
+		}
 
 		return ctx;
 	}
@@ -84,7 +89,7 @@ namespace Slink
 
 			ClientRenderFunction();
 
-			DirectX11::Present();
+			ctx->Present();
 		}
 	}
 }

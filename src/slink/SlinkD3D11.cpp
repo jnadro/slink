@@ -68,7 +68,7 @@ namespace Slink
 			Context->RSSetViewports(1, &vp);
 		}
 
-		void Present() {
+		void DirectX11RenderContext::Present() {
 			SwapChain->Present(0, 0);
 		}
 	}

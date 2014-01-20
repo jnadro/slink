@@ -39,6 +39,9 @@
     <ClCompile Include="..\src\slink\SlinkD3D11.cpp">
       <Filter>src\slink</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\slink\SlinkGL.cpp">
+      <Filter>src\slink</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\slink\Slink.h">
@@ -57,6 +60,9 @@
       <Filter>src\slink</Filter>
     </ClInclude>
     <ClInclude Include="..\src\slink\RenderContext.h">
+      <Filter>src\slink</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\slink\SlinkGL.h">
       <Filter>src\slink</Filter>
     </ClInclude>
   </ItemGroup>
