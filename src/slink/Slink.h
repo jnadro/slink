@@ -3,26 +3,20 @@
 
 #include <d3d11.h>
 #include "ResourcePointers.h"
+#include "RenderContext.h"
 
 namespace Slink
 {
 	using namespace DX11Ptr;
 
-	enum class RenderContext : unsigned int {
+	enum class RenderContextType : unsigned int {
 		DirectX11,
 		OpenGL
 	};
 
 	void Init(int argc, char* argv[]);
 	void InitWindow(UINT Width, UINT Height);
-	void InitContext(RenderContext context);
-
-	namespace DirectX11
-	{
-		ID3D11DeviceContextPtr GetContext();
-		ID3D11DevicePtr GetDevice();
-		ID3D11RenderTargetViewPtr GetBackBufferView();
-	}
+	RenderContext* InitContext(RenderContextType context);
 
 	typedef void (*RenderFunctionPtr)(void);
 	void RenderFunction(RenderFunctionPtr);

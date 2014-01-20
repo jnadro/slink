@@ -94,6 +94,7 @@
     <ClCompile Include="..\src\slink\SlinkShaders.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\src\slink\RenderContext.h" />
     <ClInclude Include="..\src\slink\ResourcePointers.h" />
     <ClInclude Include="..\src\slink\Slink.h" />
     <ClInclude Include="..\src\slink\SlinkD3D11.h" />

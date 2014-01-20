@@ -56,6 +56,9 @@
     <ClInclude Include="..\src\slink\SlinkD3D11.h">
       <Filter>src\slink</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\slink\RenderContext.h">
+      <Filter>src\slink</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="..\src\shaders\MeshShader.hlsl">

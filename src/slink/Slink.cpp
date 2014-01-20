@@ -7,12 +7,15 @@
 #include "Slink.h"
 #include "SlinkHelpers.h"
 #include "SlinkD3D11.h"
+#include "RenderContext.h"
 
 namespace Slink
 {
 	static HWND window = nullptr;
 	static RenderFunctionPtr ClientRenderFunction = nullptr;
 	static UINT WindowWidth = 0, WindowHeight = 0;
+
+	static RenderContext* ctx = nullptr;
 
 	using namespace DX11Ptr;
 
@@ -56,11 +59,14 @@ namespace Slink
 								0, 0, WindowWidth, WindowHeight, 0, 0, hInstance, nullptr);
 	}
 
-	void InitContext(RenderContext context) {
+	RenderContext* InitContext(RenderContextType context) {
 
-		if (context == RenderContext::DirectX11) {
-			DirectX11::Init(window, WindowWidth, WindowHeight);
+		if (context == RenderContextType::DirectX11) {
+			ctx = new DirectX11::DirectX11RenderContext();
+			ctx->Init(window, WindowWidth, WindowHeight);
 		}
+
+		return ctx;
 	}
 
 	void RenderFunction(RenderFunctionPtr r) {

@@ -12,9 +12,10 @@ namespace Slink
 		static IDXGISwapChainPtr			SwapChain		= nullptr;
 		static ID3D11DevicePtr				Device			= nullptr;
 		static ID3D11DeviceContextPtr		Context			= nullptr;
+		static ID3D11Texture2DPtr			BackBuffer		= nullptr;
 		static ID3D11RenderTargetViewPtr	BackBufferView	= nullptr;
 
-		void Init(HWND window, UINT WindowWidth, UINT WindowHeight)
+		void DirectX11RenderContext::Init(HWND window, unsigned int WindowWidth, unsigned int WindowHeight)
 		{
 			const UINT NumFeatureLevels = 3;
 
@@ -45,26 +46,26 @@ namespace Slink
 													D3D11_SDK_VERSION, &sd, &SwapChain, &Device, nullptr, &Context));
 
 			// Create a render target view
-			ID3D11Texture2DPtr pBackBuffer;
-			VERIFYDX(SwapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), (void**)&pBackBuffer));
-	 
-			VERIFYDX(Device->CreateRenderTargetView(pBackBuffer, nullptr, &BackBufferView));
+			VERIFYDX(SwapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), (void**)&BackBuffer)); 
+			VERIFYDX(Device->CreateRenderTargetView(BackBuffer, nullptr, &BackBufferView));
 		}
 
-
-		ID3D11DeviceContextPtr GetContext() {
-			assert(Context.GetInterfacePtr());
-			return Context;
+		void DirectX11RenderContext::ClearScreen()
+		{
+			float ClearColor[4] = { 1.0f, 0.5f, 0.5f, 1.0f };
+			Context->ClearRenderTargetView(BackBufferView, ClearColor);
 		}
 
-		ID3D11DevicePtr GetDevice() {
-			assert(Device.GetInterfacePtr());
-			return Device;
-		}
+		void DirectX11RenderContext::SetRenderTarget()
+		{
+			Context->OMSetRenderTargets(1, &BackBufferView.GetInterfacePtr(), nullptr);
 
-		ID3D11RenderTargetViewPtr GetBackBufferView() {
-			assert(BackBufferView.GetInterfacePtr());
-			return BackBufferView;
+			D3D11_TEXTURE2D_DESC desc;
+			BackBuffer->GetDesc(&desc);
+
+			// Setup the viewport
+			D3D11_VIEWPORT vp = { (FLOAT)desc.Width, (FLOAT)desc.Height, 0.0f, 1.0f, 0, 0 };
+			Context->RSSetViewports(1, &vp);
 		}
 
 		void Present() {
