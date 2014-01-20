@@ -53,6 +53,7 @@ namespace Slink
 
 		void OpenGLRenderContext::ClearScreen()
 		{
+
 		}
 
 		void OpenGLRenderContext::SetRenderTarget()
@@ -61,6 +62,7 @@ namespace Slink
 
 		void OpenGLRenderContext::Present()
 		{
+			SwapBuffers(hDC);
 		}
 	}
 }
