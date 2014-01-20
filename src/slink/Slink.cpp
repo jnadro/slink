@@ -91,5 +91,7 @@ namespace Slink
 
 			ctx->Present();
 		}
+
+		ctx->Terminate();
 	}
 }

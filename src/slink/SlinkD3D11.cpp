@@ -50,6 +50,11 @@ namespace Slink
 			VERIFYDX(Device->CreateRenderTargetView(BackBuffer, nullptr, &BackBufferView));
 		}
 
+		void DirectX11RenderContext::Terminate()
+		{
+
+		}
+
 		void DirectX11RenderContext::ClearScreen()
 		{
 			float ClearColor[4] = { 1.0f, 0.5f, 0.5f, 1.0f };
