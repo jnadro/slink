@@ -19,6 +19,12 @@
     <Filter Include="Shaders">
       <UniqueIdentifier>{05f8786d-d556-4d86-947e-30494a92333b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\slink\OpenGL">
+      <UniqueIdentifier>{8a094f9a-1308-4351-9891-76480870d78b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\slink\DirectX11">
+      <UniqueIdentifier>{ae509554-bdae-4281-af58-0536adfb6cb4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Main.cpp">
@@ -37,10 +43,10 @@
       <Filter>src\slink</Filter>
     </ClCompile>
     <ClCompile Include="..\src\slink\SlinkGL.cpp">
-      <Filter>src\slink</Filter>
+      <Filter>src\slink\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="..\src\slink\SlinkDirectX11.cpp">
-      <Filter>src\slink</Filter>
+      <Filter>src\slink\DirectX11</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -59,14 +65,14 @@
     <ClInclude Include="..\src\slink\RenderContext.h">
       <Filter>src\slink</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\slink\SlinkGL.h">
-      <Filter>src\slink</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\slink\ShaderStrings.cpp">
       <Filter>src\slink</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\slink\SlinkGL.h">
+      <Filter>src\slink\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="..\src\slink\SlinkDirectX11.h">
-      <Filter>src\slink</Filter>
+      <Filter>src\slink\DirectX11</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
