@@ -97,6 +97,7 @@
   <ItemGroup>
     <ClInclude Include="..\src\slink\RenderContext.h" />
     <ClInclude Include="..\src\slink\ResourcePointers.h" />
+    <ClInclude Include="..\src\slink\ShaderStrings.cpp" />
     <ClInclude Include="..\src\slink\Slink.h" />
     <ClInclude Include="..\src\slink\SlinkD3D11.h" />
     <ClInclude Include="..\src\slink\SlinkGeometry.h" />
