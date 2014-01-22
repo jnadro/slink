@@ -18,7 +18,7 @@ int main(int argc, char* argv[])
 	Slink::Init(argc, argv);
 	Slink::InitWindow(Width, Height);
 	Slink::RenderFunction(Render);
-	ctx = Slink::InitContext(Slink::RenderContextType::OpenGL);
+	ctx = Slink::InitContext(Slink::RenderContextType::DirectX11);
 
 	WebCore* web_core = WebCore::Initialize(WebConfig());
 	

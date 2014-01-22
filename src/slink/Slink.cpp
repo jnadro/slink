@@ -7,7 +7,7 @@
 #include "Slink.h"
 #include "SlinkHelpers.h"
 #include "ShaderStrings.cpp"
-#include "SlinkD3D11.h"
+#include "SlinkDirectX11.h"
 #include "SlinkGL.h"
 #include "RenderContext.h"
 

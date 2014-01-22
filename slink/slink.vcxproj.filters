@@ -36,10 +36,10 @@
     <ClCompile Include="..\src\slink\SlinkGeometry.cpp">
       <Filter>src\slink</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\slink\SlinkD3D11.cpp">
+    <ClCompile Include="..\src\slink\SlinkGL.cpp">
       <Filter>src\slink</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\slink\SlinkGL.cpp">
+    <ClCompile Include="..\src\slink\SlinkDirectX11.cpp">
       <Filter>src\slink</Filter>
     </ClCompile>
   </ItemGroup>
@@ -56,9 +56,6 @@
     <ClInclude Include="..\src\slink\SlinkGeometry.h">
       <Filter>src\slink</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\slink\SlinkD3D11.h">
-      <Filter>src\slink</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\slink\RenderContext.h">
       <Filter>src\slink</Filter>
     </ClInclude>
@@ -66,6 +63,9 @@
       <Filter>src\slink</Filter>
     </ClInclude>
     <ClInclude Include="..\src\slink\ShaderStrings.cpp">
+      <Filter>src\slink</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\slink\SlinkDirectX11.h">
       <Filter>src\slink</Filter>
     </ClInclude>
   </ItemGroup>

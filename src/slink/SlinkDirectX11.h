@@ -1,5 +1,5 @@
-#ifndef SlinkD3D11_h
-#define SlinkD3D11_h
+#ifndef SlinkDirectX11_h
+#define SlinkDirectX11_h
 
 #include "RenderContext.h"
 

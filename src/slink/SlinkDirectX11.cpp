@@ -1,5 +1,5 @@
 #include <d3d11.h>
-#include "SlinkD3D11.h"
+#include "SlinkDirectX11.h"
 #include "ResourcePointers.h"
 #include "SlinkHelpers.h"
 
