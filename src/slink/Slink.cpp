@@ -19,8 +19,6 @@ namespace Slink
 
 	static RenderContext* ctx = nullptr;
 
-	using namespace DX11Ptr;
-
 	static LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
 		switch(message)
 		{

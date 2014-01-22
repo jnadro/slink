@@ -2,10 +2,10 @@
 #include "SlinkHelpers.h"
 #include <fstream>
 #include <string>
+#include <assert.h>
 
 namespace Slink
 {
-	using namespace DX11Ptr;
 	using namespace std;
 
 	static const string ShaderDir("shaders\\");
@@ -36,6 +36,7 @@ namespace Slink
 		return blob;
 	}
 
+	/*
 	ID3D11VertexShaderPtr LoadVSBinary(ID3D11DevicePtr Device, const char* Filename) {
 		assert(Filename);
 		assert(Device);
@@ -69,4 +70,5 @@ namespace Slink
 
 		return PS;
 	}
+	*/
 }

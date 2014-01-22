@@ -1,6 +1,7 @@
 #ifndef SLINKGEOMETRY_H
 #define SLINKGEOMETRY_H
 
+/*
 #include <vector>
 
 namespace Slink
@@ -26,5 +27,6 @@ namespace Slink
 		ID3D11BufferPtr VertexBuffer;
 	};
 }
+*/
 
 #endif

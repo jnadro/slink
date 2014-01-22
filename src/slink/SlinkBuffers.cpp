@@ -3,6 +3,7 @@
 
 namespace Slink
 {
+	/*
 	// Define the input layout
 	static D3D11_INPUT_ELEMENT_DESC SimpleVertexDecl[] =
 	{
@@ -34,4 +35,5 @@ namespace Slink
 		assert(vertexBuffer.GetInterfacePtr());
 		return vertexBuffer;
 	}
+	*/
 }
