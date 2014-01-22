@@ -17,8 +17,6 @@ namespace Slink
 			virtual void SetRenderTarget();
 			virtual void Present();
 		};
-
-		void Init(HWND window, unsigned int WindowWidth, unsigned int WindowHeight);
 	}
 }
 
