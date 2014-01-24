@@ -23,20 +23,10 @@ namespace Slink
 		{
 			ID3DBlob* blob = nullptr;
 			ID3DBlob* errors = nullptr;
-			HRESULT hr = D3DCompile(shaderCode,
-									shaderLength,
-									nullptr,
-									nullptr,
-									nullptr,
-									"Main",
-									shaderProfile,
-									0,
-									0,
-									&blob,
-									&errors);
+			HRESULT hr = D3DCompile(shaderCode, shaderLength, nullptr, nullptr, nullptr, "Main", shaderProfile, 0, 0, &blob, &errors);
 
-			if (FAILED(hr))
-			{
+			if (FAILED(hr)) {
+
 				if (errors) {
 					OutputDebugStringA((char*)errors->GetBufferPointer());
 					errors->Release();
