@@ -2,6 +2,7 @@
 #define SlinkDirectX11Shaders_h
 
 #include "ResourcePointers.h"
+#include <string>
 
 namespace Slink
 {
@@ -14,6 +15,9 @@ namespace Slink
 		public:
 			Shader();
 			~Shader();
+
+			bool createFromString(std::string vertex, std::string pixel);
+
 		private:
 			ID3D11VertexShaderPtr VertexShader;
 			ID3D11PixelShaderPtr PixelShader;

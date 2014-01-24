@@ -1,5 +1,7 @@
 #include <d3d11.h>
 #include "SlinkDirectX11.h"
+#include "SlinkDirectX11Shaders.h"
+#include "ShaderStrings.cpp"
 #include "ResourcePointers.h"
 #include "SlinkHelpers.h"
 
@@ -48,6 +50,10 @@ namespace Slink
 			// Create a render target view
 			VERIFYDX(SwapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), (void**)&BackBuffer)); 
 			VERIFYDX(Device->CreateRenderTargetView(BackBuffer, nullptr, &BackBufferView));
+
+			//Test Code!
+			Shader simple;
+			simple.createFromString(std::string(VS), std::string(PS));
 		}
 
 		void DirectX11RenderContext::Terminate()

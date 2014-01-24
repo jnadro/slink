@@ -6,7 +6,6 @@
 #include <assert.h>
 #include "Slink.h"
 #include "SlinkHelpers.h"
-#include "ShaderStrings.cpp"
 #include "SlinkDirectX11.h"
 #include "SlinkGL.h"
 #include "RenderContext.h"
