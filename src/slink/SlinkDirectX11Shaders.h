@@ -16,11 +16,11 @@ namespace Slink
 			Shader();
 			~Shader();
 
-			bool createFromString(std::string vertex, std::string pixel);
+			bool createFromString(std::string vertex, std::string pixel, ID3D11DevicePtr device);
 
 		private:
-			ID3D11VertexShaderPtr VertexShader;
-			ID3D11PixelShaderPtr PixelShader;
+			ID3D11VertexShaderPtr vertexShader;
+			ID3D11PixelShaderPtr pixelShader;
 		};
 	}
 }

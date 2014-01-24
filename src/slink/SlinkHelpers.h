@@ -13,4 +13,6 @@
 	#define VERIFYDX(x) (x);
 #endif
 
+#define SAFE_RELEASE(p) { if ((p)) p->Release(); }
+
 #endif

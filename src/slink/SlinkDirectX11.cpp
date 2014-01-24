@@ -53,7 +53,7 @@ namespace Slink
 
 			//Test Code!
 			Shader simple;
-			simple.createFromString(std::string(VS), std::string(PS));
+			simple.createFromString(std::string(VS), std::string(PS), Device);
 		}
 
 		void DirectX11RenderContext::Terminate()
