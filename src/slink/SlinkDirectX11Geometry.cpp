@@ -1,5 +1,6 @@
 #include <d3d11.h>
 #include "SlinkDirectX11Geometry.h"
+#include "SlinkHelpers.h"
 
 namespace Slink
 {
@@ -14,6 +15,36 @@ namespace Slink
 
 	Geometry::Geometry() {
 	}
+
 	Geometry::~Geometry() {
+	}
+
+	static ID3D11BufferPtr createBuffer(ID3D11DevicePtr device, const float* const verts, int numVerts) {
+		assert(device);
+		assert(verts);
+		assert(numVerts > 0);
+
+		D3D11_BUFFER_DESC bufferDesc = {0};
+		bufferDesc.ByteWidth = numVerts * 3 * sizeof(float);
+		bufferDesc.Usage = D3D11_USAGE_IMMUTABLE;
+		bufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
+		bufferDesc.CPUAccessFlags = 0;
+		bufferDesc.MiscFlags = 0;
+		bufferDesc.StructureByteStride = 0;
+
+		D3D11_SUBRESOURCE_DATA initData = {0};
+		initData.pSysMem = verts;
+
+		ID3D11BufferPtr vertexBuffer = nullptr;
+		VERIFYDX(device->CreateBuffer(&bufferDesc, &initData, &vertexBuffer));
+
+		return vertexBuffer;
+	}
+
+	void Geometry::createFromData(ID3D11DevicePtr device, const float* const verts, int numVerts) {
+		vertexBuffer = createBuffer(device, verts, numVerts);
+	}
+
+	void Geometry::draw() {
 	}
 }

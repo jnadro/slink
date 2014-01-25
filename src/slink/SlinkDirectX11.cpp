@@ -1,6 +1,7 @@
 #include <d3d11.h>
 #include "SlinkDirectX11.h"
 #include "SlinkDirectX11Shaders.h"
+#include "SlinkDirectX11Geometry.h"
 #include "ShaderStrings.cpp"
 #include "ResourcePointers.h"
 #include "SlinkHelpers.h"
@@ -14,6 +15,7 @@ namespace Slink
 	static ID3D11RenderTargetViewPtr	BackBufferView	= nullptr;
 
 	static Shader						simple;
+	static Geometry						triangle;
 
 	void DirectX11RenderContext::Init(HWND window, unsigned int WindowWidth, unsigned int WindowHeight)
 	{
@@ -51,11 +53,15 @@ namespace Slink
 
 		//Test Code!
 		simple.createFromString(std::string(VS), std::string(PS), Device);
+
+		float verts[9] = {-1.0f, -1.0f, 0.0f,
+						   0.0f,  1.0f, 0.0f,
+						   1.0f, -1.0f, 0.0f};
+		triangle.createFromData(Device, verts, 3); 
 	}
 
 	void DirectX11RenderContext::Terminate()
 	{
-
 	}
 
 	void DirectX11RenderContext::ClearScreen()

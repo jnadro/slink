@@ -12,14 +12,13 @@ namespace Slink
 		Geometry();
 		~Geometry();
 
-		// Raw Data
-		std::vector<UINT> indices;
-		std::vector<float> vertices;
+		void createFromData(ID3D11DevicePtr device, const float* const verts, int numVerts);
+		void draw();
 
 	private:
 		// GPU Resources
-		ID3D11BufferPtr IndexBuffer;
-		ID3D11BufferPtr VertexBuffer;
+		ID3D11BufferPtr indexBuffer;
+		ID3D11BufferPtr vertexBuffer;
 	};
 }
 
