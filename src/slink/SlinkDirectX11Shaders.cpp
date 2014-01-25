@@ -5,60 +5,57 @@
 
 namespace Slink
 {
-	namespace DirectX11
+	Shader::Shader()
+		: vertexShader(nullptr),
+			pixelShader(nullptr)
 	{
-		Shader::Shader()
-			: vertexShader(nullptr),
-			  pixelShader(nullptr)
-		{
-		}
+	}
 
-		Shader::~Shader()
-		{
-			SAFE_RELEASE(vertexShader);
-			SAFE_RELEASE(pixelShader);
-		}
+	Shader::~Shader()
+	{
+		SAFE_RELEASE(vertexShader);
+		SAFE_RELEASE(pixelShader);
+	}
 
-		static ID3DBlob* CompileShader(const char* shaderCode, size_t shaderLength, const char* shaderProfile)
-		{
-			ID3DBlob* blob = nullptr;
-			ID3DBlob* errors = nullptr;
-			HRESULT hr = D3DCompile(shaderCode, shaderLength, nullptr, nullptr, nullptr, "Main", shaderProfile, 0, 0, &blob, &errors);
+	static ID3DBlob* CompileShader(const char* shaderCode, size_t shaderLength, const char* shaderProfile)
+	{
+		ID3DBlob* blob = nullptr;
+		ID3DBlob* errors = nullptr;
+		HRESULT hr = D3DCompile(shaderCode, shaderLength, nullptr, nullptr, nullptr, "Main", shaderProfile, 0, 0, &blob, &errors);
 
-			if (FAILED(hr)) {
+		if (FAILED(hr)) {
 
-				if (errors) {
-					OutputDebugStringA((char*)errors->GetBufferPointer());
-					errors->Release();
-				}
-
-				SAFE_RELEASE(blob);
-
-				return nullptr;
+			if (errors) {
+				OutputDebugStringA((char*)errors->GetBufferPointer());
+				errors->Release();
 			}
 
-			return blob;
+			SAFE_RELEASE(blob);
+
+			return nullptr;
 		}
 
-		bool Shader::createFromString(std::string vertex, std::string pixel, ID3D11DevicePtr device)
-		{
-			auto vsBlob = CompileShader(vertex.c_str(), vertex.length(), "vs_5_0");
-			if (vsBlob == nullptr) 
-				return false;
+		return blob;
+	}
 
-			auto psBlob = CompileShader(pixel.c_str(), pixel.length(), "ps_5_0");
-			if (psBlob == nullptr) {
-				SAFE_RELEASE(vsBlob);
-				return false;
-			}
+	bool Shader::createFromString(std::string vertex, std::string pixel, ID3D11DevicePtr device)
+	{
+		auto vsBlob = CompileShader(vertex.c_str(), vertex.length(), "vs_5_0");
+		if (vsBlob == nullptr) 
+			return false;
 
-			VERIFYDX(device->CreateVertexShader(vsBlob->GetBufferPointer(), vsBlob->GetBufferSize(), nullptr, &vertexShader));
-			VERIFYDX(device->CreatePixelShader(psBlob->GetBufferPointer(), psBlob->GetBufferSize(), nullptr, &pixelShader));
-
+		auto psBlob = CompileShader(pixel.c_str(), pixel.length(), "ps_5_0");
+		if (psBlob == nullptr) {
 			SAFE_RELEASE(vsBlob);
-			SAFE_RELEASE(psBlob);
-
-			return true;
+			return false;
 		}
+
+		VERIFYDX(device->CreateVertexShader(vsBlob->GetBufferPointer(), vsBlob->GetBufferSize(), nullptr, &vertexShader));
+		VERIFYDX(device->CreatePixelShader(psBlob->GetBufferPointer(), psBlob->GetBufferSize(), nullptr, &pixelShader));
+
+		SAFE_RELEASE(vsBlob);
+		SAFE_RELEASE(psBlob);
+
+		return true;
 	}
 }
