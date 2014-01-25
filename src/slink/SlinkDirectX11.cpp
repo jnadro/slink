@@ -13,6 +13,8 @@ namespace Slink
 	static ID3D11Texture2DPtr			BackBuffer		= nullptr;
 	static ID3D11RenderTargetViewPtr	BackBufferView	= nullptr;
 
+	static Shader						simple;
+
 	void DirectX11RenderContext::Init(HWND window, unsigned int WindowWidth, unsigned int WindowHeight)
 	{
 		const UINT NumFeatureLevels = 3;
@@ -48,7 +50,6 @@ namespace Slink
 		VERIFYDX(Device->CreateRenderTargetView(BackBuffer, nullptr, &BackBufferView));
 
 		//Test Code!
-		Shader simple;
 		simple.createFromString(std::string(VS), std::string(PS), Device);
 	}
 
@@ -73,6 +74,10 @@ namespace Slink
 		// Setup the viewport
 		D3D11_VIEWPORT vp = { (FLOAT)desc.Width, (FLOAT)desc.Height, 0.0f, 1.0f, 0, 0 };
 		Context->RSSetViewports(1, &vp);
+	}
+
+	void DirectX11RenderContext::Draw() {
+
 	}
 
 	void DirectX11RenderContext::Present() {

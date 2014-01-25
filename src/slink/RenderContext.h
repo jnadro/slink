@@ -14,6 +14,7 @@ namespace Slink
 		virtual void ClearScreen() = 0;
 		virtual void SetRenderTarget() = 0;
 		virtual void Present() = 0;
+		virtual void Draw() = 0;
 	};
 }
 

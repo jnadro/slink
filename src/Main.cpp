@@ -11,6 +11,7 @@ void Render()
 {
 	ctx->SetRenderTarget();
 	ctx->ClearScreen();
+	ctx->Draw();
 }
 
 int main(int argc, char* argv[])
