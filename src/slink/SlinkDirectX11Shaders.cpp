@@ -55,6 +55,9 @@ namespace Slink
 			VERIFYDX(device->CreateVertexShader(vsBlob->GetBufferPointer(), vsBlob->GetBufferSize(), nullptr, &vertexShader));
 			VERIFYDX(device->CreatePixelShader(psBlob->GetBufferPointer(), psBlob->GetBufferSize(), nullptr, &pixelShader));
 
+			SAFE_RELEASE(vsBlob);
+			SAFE_RELEASE(psBlob);
+
 			return true;
 		}
 	}
