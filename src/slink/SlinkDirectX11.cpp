@@ -9,8 +9,6 @@ namespace Slink
 {
 	namespace DirectX11
 	{
-		using namespace DX11Ptr;
-
 		static IDXGISwapChainPtr			SwapChain		= nullptr;
 		static ID3D11DevicePtr				Device			= nullptr;
 		static ID3D11DeviceContextPtr		Context			= nullptr;

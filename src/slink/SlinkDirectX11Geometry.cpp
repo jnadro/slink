@@ -1,5 +1,5 @@
 #include "Slink.h"
-#include "SlinkGeometry.h"
+#include "SlinkDirectX11Geometry.h"
 
 namespace Slink
 {

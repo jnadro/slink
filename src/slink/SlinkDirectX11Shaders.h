@@ -8,8 +8,6 @@ namespace Slink
 {
 	namespace DirectX11
 	{
-		using namespace DX11Ptr;
-
 		class Shader
 		{
 		public:

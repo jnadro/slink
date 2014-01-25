@@ -1,18 +1,13 @@
-#ifndef SLINKGEOMETRY_H
-#define SLINKGEOMETRY_H
+#ifndef SlinkDirectX11Geometry_h
+#define SlinkDirectX11Geometry_h
 
-/*
 #include <vector>
+#include "ResourcePointers.h"
 
 namespace Slink
 {
-	namespace D3D11Ptr
+	class Geometry 
 	{
-		class ID3D11BufferPtr;
-		class ID3D11BufferPtr;
-	}
-
-	class Geometry {
 	public:
 		Geometry();
 		~Geometry();
@@ -27,6 +22,6 @@ namespace Slink
 		ID3D11BufferPtr VertexBuffer;
 	};
 }
-*/
+
 
 #endif
