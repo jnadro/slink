@@ -90,8 +90,8 @@
     <ClCompile Include="..\src\slink\Slink.cpp" />
     <ClCompile Include="..\src\slink\SlinkBuffers.cpp" />
     <ClCompile Include="..\src\slink\SlinkDirectX11.cpp" />
+    <ClCompile Include="..\src\slink\SlinkDirectX11Geometry.cpp" />
     <ClCompile Include="..\src\slink\SlinkDirectX11Shaders.cpp" />
-    <ClCompile Include="..\src\slink\SlinkGeometry.cpp" />
     <ClCompile Include="..\src\slink\SlinkGL.cpp" />
     <ClCompile Include="..\src\slink\SlinkShaders.cpp" />
   </ItemGroup>
@@ -101,8 +101,8 @@
     <ClInclude Include="..\src\slink\ShaderStrings.cpp" />
     <ClInclude Include="..\src\slink\Slink.h" />
     <ClInclude Include="..\src\slink\SlinkDirectX11.h" />
+    <ClInclude Include="..\src\slink\SlinkDirectX11Geometry.h" />
     <ClInclude Include="..\src\slink\SlinkDirectX11Shaders.h" />
-    <ClInclude Include="..\src\slink\SlinkGeometry.h" />
     <ClInclude Include="..\src\slink\SlinkGL.h" />
     <ClInclude Include="..\src\slink\SlinkHelpers.h" />
   </ItemGroup>
