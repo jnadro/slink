@@ -7,18 +7,14 @@ namespace Slink
 {
 	Shader::Shader()
 		: vertexShader(nullptr),
-			pixelShader(nullptr)
+		  pixelShader(nullptr)
 	{
 	}
 
-	Shader::~Shader()
-	{
-		SAFE_RELEASE(vertexShader);
-		SAFE_RELEASE(pixelShader);
+	Shader::~Shader() {
 	}
 
-	static ID3DBlob* CompileShader(const char* shaderCode, size_t shaderLength, const char* shaderProfile)
-	{
+	static ID3DBlob* CompileShader(const char* shaderCode, size_t shaderLength, const char* shaderProfile) {
 		ID3DBlob* blob = nullptr;
 		ID3DBlob* errors = nullptr;
 		HRESULT hr = D3DCompile(shaderCode, shaderLength, nullptr, nullptr, nullptr, "Main", shaderProfile, 0, 0, &blob, &errors);
@@ -38,8 +34,7 @@ namespace Slink
 		return blob;
 	}
 
-	bool Shader::createFromString(std::string vertex, std::string pixel, ID3D11DevicePtr device)
-	{
+	bool Shader::createFromString(std::string vertex, std::string pixel, ID3D11DevicePtr device) {
 		auto vsBlob = CompileShader(vertex.c_str(), vertex.length(), "vs_5_0");
 		if (vsBlob == nullptr) 
 			return false;

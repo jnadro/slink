@@ -1,9 +1,8 @@
-#include "Slink.h"
+#include <d3d11.h>
 #include "SlinkDirectX11Geometry.h"
 
 namespace Slink
 {
-	/*
 	// Define the input layout
 	static D3D11_INPUT_ELEMENT_DESC SimpleVertexDecl[] =
 	{
@@ -13,18 +12,8 @@ namespace Slink
 	};
 	static UINT SimpleVertexNumElements = ARRAYSIZE(SimpleVertexDecl);
 
-	static Geometry Quad;
-
-	Geometry::Geometry()
-	{
+	Geometry::Geometry() {
 	}
-	Geometry::~Geometry()
-	{
+	Geometry::~Geometry() {
 	}
-
-	Geometry* QuadGeometry()
-	{
-		return &Quad;
-	}
-	*/
 }
