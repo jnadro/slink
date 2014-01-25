@@ -88,7 +88,6 @@
   <ItemGroup>
     <ClCompile Include="..\src\Main.cpp" />
     <ClCompile Include="..\src\slink\Slink.cpp" />
-    <ClCompile Include="..\src\slink\SlinkBuffers.cpp" />
     <ClCompile Include="..\src\slink\SlinkDirectX11.cpp" />
     <ClCompile Include="..\src\slink\SlinkDirectX11Geometry.cpp" />
     <ClCompile Include="..\src\slink\SlinkDirectX11Shaders.cpp" />

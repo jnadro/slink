@@ -36,9 +36,6 @@
     <ClCompile Include="..\src\slink\SlinkShaders.cpp">
       <Filter>src\slink</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\slink\SlinkBuffers.cpp">
-      <Filter>src\slink</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\slink\SlinkGL.cpp">
       <Filter>src\slink\OpenGL</Filter>
     </ClCompile>
