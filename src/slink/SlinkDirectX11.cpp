@@ -83,7 +83,7 @@ namespace Slink
 	}
 
 	void DirectX11RenderContext::Draw() {
-
+		triangle.draw();
 	}
 
 	void DirectX11RenderContext::Present() {
