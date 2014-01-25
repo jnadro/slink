@@ -19,6 +19,8 @@ namespace Slink
 		// GPU Resources
 		ID3D11BufferPtr indexBuffer;
 		ID3D11BufferPtr vertexBuffer;
+
+		bool created;
 	};
 }
 

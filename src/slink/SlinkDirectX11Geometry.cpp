@@ -13,10 +13,13 @@ namespace Slink
 	};
 	static UINT SimpleVertexNumElements = ARRAYSIZE(SimpleVertexDecl);
 
-	Geometry::Geometry() {
+	Geometry::Geometry()
+	: created(false)
+	{
 	}
 
-	Geometry::~Geometry() {
+	Geometry::~Geometry() 
+	{
 	}
 
 	static ID3D11BufferPtr createBuffer(ID3D11DevicePtr device, const float* const verts, int numVerts) {
@@ -42,7 +45,11 @@ namespace Slink
 	}
 
 	void Geometry::createFromData(ID3D11DevicePtr device, const float* const verts, int numVerts) {
+		assert(!created);
+
 		vertexBuffer = createBuffer(device, verts, numVerts);
+		
+		created = true;
 	}
 
 	void Geometry::draw() {
