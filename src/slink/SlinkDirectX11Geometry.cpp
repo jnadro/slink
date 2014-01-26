@@ -12,7 +12,7 @@ namespace Slink
 		{ "POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D11_INPUT_PER_VERTEX_DATA, 0 }, 
 	};
 	static UINT SimpleVertexNumElements = ARRAYSIZE(SimpleVertexDecl);
-	static UINT SimpleVertexStride = 3; // in bytes
+	static UINT SimpleVertexStride = 3 * sizeof(float); // in bytes
 
 	Geometry::Geometry()
 		: indexBuffer(nullptr),
