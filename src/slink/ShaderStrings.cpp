@@ -2,14 +2,9 @@
 #define ShaderStrings_h
 
 const char* VS = 
-	"struct VS_INPUT {"
-	"};"
-	"struct VS_OUTPUT {"
-	"};"
-	"VS_OUTPUT Main(in VS_INPUT input)"
+	"float4 Main(in float3 position : POSITION) : SV_Position"
 	"{"
-	"	VS_OUTPUT output = (VS_OUTPUT)0;"
-	"	return output;"
+	"	return float4(position.xyz, 1.0f);"
 	"}";
 
 const char* PS =

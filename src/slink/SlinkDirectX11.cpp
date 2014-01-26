@@ -10,7 +10,7 @@ namespace Slink
 {
 	static IDXGISwapChainPtr			SwapChain		= nullptr;
 	static ID3D11DevicePtr				Device			= nullptr;
-	static ID3D11DeviceContextPtr		Context			= nullptr;
+		   ID3D11DeviceContextPtr		Context			= nullptr;
 	static ID3D11Texture2DPtr			BackBuffer		= nullptr;
 	static ID3D11RenderTargetViewPtr	BackBufferView	= nullptr;
 
@@ -57,6 +57,7 @@ namespace Slink
 		float verts[9] = {-1.0f, -1.0f, 0.0f,
 						   0.0f,  1.0f, 0.0f,
 						   1.0f, -1.0f, 0.0f};
+		triangle.setVertexShader(simple.getBytecode());
 		triangle.createFromData(Device, verts, 3); 
 	}
 
@@ -83,6 +84,7 @@ namespace Slink
 	}
 
 	void DirectX11RenderContext::Draw() {
+		simple.set();
 		triangle.draw();
 	}
 

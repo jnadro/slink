@@ -18,6 +18,9 @@ namespace Slink
 	_COM_SMARTPTR_TYPEDEF(ID3D11PixelShader, __uuidof(ID3D11PixelShader));
 
 	_COM_SMARTPTR_TYPEDEF(ID3D11Buffer, __uuidof(ID3D11Buffer));
+
+	_COM_SMARTPTR_TYPEDEF(ID3D11InputLayout, __uuidof(ID3D11InputLayout));
+	_COM_SMARTPTR_TYPEDEF(ID3DBlob, __uuidof(ID3DBlob));
 }
 
 #endif

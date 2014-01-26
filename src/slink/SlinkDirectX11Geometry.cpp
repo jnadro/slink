@@ -4,17 +4,22 @@
 
 namespace Slink
 {
+	extern ID3D11DeviceContextPtr Context;
+
 	// Define the input layout
 	static D3D11_INPUT_ELEMENT_DESC SimpleVertexDecl[] =
 	{
 		{ "POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D11_INPUT_PER_VERTEX_DATA, 0 }, 
-		{ "COLOR", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 12, D3D11_INPUT_PER_VERTEX_DATA, 0},
-		{ "NORMAL", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 28, D3D11_INPUT_PER_VERTEX_DATA, 0},
 	};
 	static UINT SimpleVertexNumElements = ARRAYSIZE(SimpleVertexDecl);
+	static UINT SimpleVertexStride = 3; // in bytes
 
 	Geometry::Geometry()
-	: created(false)
+		: indexBuffer(nullptr),
+		  vertexBuffer(nullptr),
+		  vsBlob(nullptr),
+		  created(false),
+		  numVertices(0)
 	{
 	}
 
@@ -46,12 +51,33 @@ namespace Slink
 
 	void Geometry::createFromData(ID3D11DevicePtr device, const float* const verts, int numVerts) {
 		assert(!created);
+		assert(vsBlob);
 
-		vertexBuffer = createBuffer(device, verts, numVerts);
+		numVertices = numVerts;
+
+		vertexBuffer = createBuffer(device, verts, numVertices);
+
+		device->CreateInputLayout(SimpleVertexDecl, SimpleVertexNumElements, vsBlob->GetBufferPointer(), vsBlob->GetBufferSize(), &inputLayout);
 		
 		created = true;
 	}
 
+	void Geometry::setVertexShader(ID3DBlobPtr shader) {
+		assert(vsBlob == nullptr);
+		vsBlob = shader;
+	}
+
 	void Geometry::draw() {
+		if (!created)
+			return;
+
+		// Set Input Assembly State.
+		Context->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+		Context->IASetInputLayout(inputLayout);
+		UINT Strides[1] = { SimpleVertexStride };
+		UINT Offsets[1] = { 0 };
+		Context->IASetVertexBuffers(0, 1, &vertexBuffer, Strides, Offsets);
+
+		Context->Draw(numVertices, 0);
 	}
 }
