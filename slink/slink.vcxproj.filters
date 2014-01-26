@@ -53,9 +53,6 @@
     <ClInclude Include="..\src\slink\Slink.h">
       <Filter>src\slink</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\slink\SlinkHelpers.h">
-      <Filter>src\slink</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\slink\RenderContext.h">
       <Filter>src\slink</Filter>
     </ClInclude>
@@ -75,6 +72,9 @@
       <Filter>src\slink\DirectX11</Filter>
     </ClInclude>
     <ClInclude Include="..\src\slink\SlinkDirectX11Geometry.h">
+      <Filter>src\slink\DirectX11</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\slink\SlinkHelpers.h">
       <Filter>src\slink\DirectX11</Filter>
     </ClInclude>
   </ItemGroup>
