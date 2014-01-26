@@ -79,7 +79,7 @@ namespace Slink
 		BackBuffer->GetDesc(&desc);
 
 		// Setup the viewport
-		D3D11_VIEWPORT vp = { (FLOAT)desc.Width, (FLOAT)desc.Height, 0.0f, 1.0f, 0, 0 };
+		D3D11_VIEWPORT vp = { 0.0f, 0.0f, (FLOAT)desc.Width, (FLOAT)desc.Height, 0.0f, 1.0f };
 		Context->RSSetViewports(1, &vp);
 	}
 
