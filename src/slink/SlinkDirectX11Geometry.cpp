@@ -76,7 +76,7 @@ namespace Slink
 		Context->IASetInputLayout(inputLayout);
 		UINT Strides[1] = { SimpleVertexStride };
 		UINT Offsets[1] = { 0 };
-		Context->IASetVertexBuffers(0, 1, &vertexBuffer, Strides, Offsets);
+		Context->IASetVertexBuffers(0, 1, &vertexBuffer.GetInterfacePtr(), Strides, Offsets);
 
 		Context->Draw(numVertices, 0);
 	}
