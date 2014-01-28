@@ -48,6 +48,9 @@
     <ClCompile Include="..\src\slink\SlinkDirectX11Geometry.cpp">
       <Filter>src\slink\DirectX11</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\slink\SlinkDirectX11Device.cpp">
+      <Filter>src\slink\DirectX11</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\slink\Slink.h">
@@ -76,6 +79,9 @@
     </ClInclude>
     <ClInclude Include="..\src\slink\SlinkHelpers.h">
       <Filter>src\slink\DirectX11</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\slink\RenderDevice.h">
+      <Filter>src\slink</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
