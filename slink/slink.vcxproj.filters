@@ -39,9 +39,6 @@
     <ClCompile Include="..\src\slink\SlinkGL.cpp">
       <Filter>src\slink\OpenGL</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\slink\SlinkDirectX11.cpp">
-      <Filter>src\slink\DirectX11</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\slink\SlinkDirectX11Shaders.cpp">
       <Filter>src\slink\DirectX11</Filter>
     </ClCompile>
@@ -49,6 +46,9 @@
       <Filter>src\slink\DirectX11</Filter>
     </ClCompile>
     <ClCompile Include="..\src\slink\SlinkDirectX11Device.cpp">
+      <Filter>src\slink\DirectX11</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\slink\SlinkDirectX11Context.cpp">
       <Filter>src\slink\DirectX11</Filter>
     </ClCompile>
   </ItemGroup>
@@ -65,9 +65,6 @@
     <ClInclude Include="..\src\slink\SlinkGL.h">
       <Filter>src\slink\OpenGL</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\slink\SlinkDirectX11.h">
-      <Filter>src\slink\DirectX11</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\slink\SlinkDirectX11Shaders.h">
       <Filter>src\slink\DirectX11</Filter>
     </ClInclude>
@@ -82,6 +79,9 @@
     </ClInclude>
     <ClInclude Include="..\src\slink\RenderDevice.h">
       <Filter>src\slink</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\slink\SlinkDirectX11Context.h">
+      <Filter>src\slink\DirectX11</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
