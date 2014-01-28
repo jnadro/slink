@@ -8,14 +8,24 @@
 
 namespace Slink
 {
-	static IDXGISwapChainPtr			SwapChain		= nullptr;
-	static ID3D11DevicePtr				Device			= nullptr;
-		   ID3D11DeviceContextPtr		Context			= nullptr;
-	static ID3D11Texture2DPtr			BackBuffer		= nullptr;
-	static ID3D11RenderTargetViewPtr	BackBufferView	= nullptr;
+	ID3D11DeviceContextPtr		Context			= nullptr;
+
 
 	static Shader						simple;
 	static Geometry						triangle;
+
+	DirectX11RenderContext::DirectX11RenderContext()
+		:	context(nullptr),
+			backBuffer(nullptr),
+			backBufferView(nullptr),
+			swapChain(nullptr),
+			device(nullptr)
+	{
+	}
+
+	DirectX11RenderContext::~DirectX11RenderContext()
+	{
+	}
 
 	void DirectX11RenderContext::Init(HWND window, unsigned int WindowWidth, unsigned int WindowHeight)
 	{
@@ -45,20 +55,20 @@ namespace Slink
 		Flags |= D3D11_CREATE_DEVICE_DEBUG;
 #endif
 		VERIFYDX(D3D11CreateDeviceAndSwapChain(	nullptr, D3D_DRIVER_TYPE_HARDWARE, nullptr, Flags, FeatureLevels, NumFeatureLevels,
-												D3D11_SDK_VERSION, &sd, &SwapChain, &Device, nullptr, &Context));
+												D3D11_SDK_VERSION, &sd, &swapChain, &device, nullptr, &Context));
 
 		// Create a render target view
-		VERIFYDX(SwapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), (void**)&BackBuffer)); 
-		VERIFYDX(Device->CreateRenderTargetView(BackBuffer, nullptr, &BackBufferView));
+		VERIFYDX(swapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), (void**)&backBuffer)); 
+		VERIFYDX(device->CreateRenderTargetView(backBuffer, nullptr, &backBufferView));
 
 		//Test Code!
-		simple.createFromString(std::string(VS), std::string(PS), Device);
+		simple.createFromString(std::string(VS), std::string(PS), device);
 
 		float verts[9] = {-1.0f, -1.0f, 0.0f,
 						   0.0f,  1.0f, 0.0f,
 						   1.0f, -1.0f, 0.0f};
 		triangle.setVertexShader(simple.getBytecode());
-		triangle.createFromData(Device, verts, 3); 
+		triangle.createFromData(device, verts, 3); 
 	}
 
 	void DirectX11RenderContext::Terminate()
@@ -68,15 +78,15 @@ namespace Slink
 	void DirectX11RenderContext::ClearScreen()
 	{
 		float ClearColor[4] = { 1.0f, 0.5f, 0.5f, 1.0f };
-		Context->ClearRenderTargetView(BackBufferView, ClearColor);
+		Context->ClearRenderTargetView(backBufferView, ClearColor);
 	}
 
 	void DirectX11RenderContext::SetRenderTarget()
 	{
-		Context->OMSetRenderTargets(1, &BackBufferView.GetInterfacePtr(), nullptr);
+		Context->OMSetRenderTargets(1, &backBufferView.GetInterfacePtr(), nullptr);
 
 		D3D11_TEXTURE2D_DESC desc;
-		BackBuffer->GetDesc(&desc);
+		backBuffer->GetDesc(&desc);
 
 		// Setup the viewport
 		D3D11_VIEWPORT vp = { 0.0f, 0.0f, (FLOAT)desc.Width, (FLOAT)desc.Height, 0.0f, 1.0f };
@@ -89,6 +99,6 @@ namespace Slink
 	}
 
 	void DirectX11RenderContext::Present() {
-		SwapChain->Present(0, 0);
+		swapChain->Present(0, 0);
 	}
 }
