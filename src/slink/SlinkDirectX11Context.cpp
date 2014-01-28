@@ -1,5 +1,5 @@
 #include <d3d11.h>
-#include "SlinkDirectX11.h"
+#include "SlinkDirectX11Context.h"
 #include "SlinkDirectX11Shaders.h"
 #include "SlinkDirectX11Geometry.h"
 #include "ShaderStrings.cpp"
