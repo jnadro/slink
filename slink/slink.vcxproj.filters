@@ -8,9 +8,6 @@
     <Filter Include="src\slink">
       <UniqueIdentifier>{231d9748-7be6-4ca2-a10c-9b77aabfaa01}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Shaders">
-      <UniqueIdentifier>{05f8786d-d556-4d86-947e-30494a92333b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\slink\OpenGL">
       <UniqueIdentifier>{8a094f9a-1308-4351-9891-76480870d78b}</UniqueIdentifier>
     </Filter>
@@ -75,25 +72,5 @@
     <ClInclude Include="..\src\slink\SlinkDirectX11Context.h">
       <Filter>src\slink\DirectX11</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <FxCompile Include="..\src\shaders\MeshShader.hlsl">
-      <Filter>Shaders</Filter>
-    </FxCompile>
-    <FxCompile Include="..\src\shaders\MeshPS.hlsl">
-      <Filter>Shaders</Filter>
-    </FxCompile>
-    <FxCompile Include="..\src\shaders\MeshVS.hlsl">
-      <Filter>Shaders</Filter>
-    </FxCompile>
-    <FxCompile Include="..\src\shaders\helloPS.hlsl">
-      <Filter>Shaders</Filter>
-    </FxCompile>
-    <FxCompile Include="..\src\shaders\helloShader.hlsl">
-      <Filter>Shaders</Filter>
-    </FxCompile>
-    <FxCompile Include="..\src\shaders\helloVS.hlsl">
-      <Filter>Shaders</Filter>
-    </FxCompile>
   </ItemGroup>
 </Project>
