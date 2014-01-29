@@ -1,5 +1,4 @@
-#ifndef RenderDevice_h
-#define RenderDevice_h
+#pragma once
 
 namespace Slink
 {
@@ -9,5 +8,3 @@ namespace Slink
 
 	};
 }
-
-#endif

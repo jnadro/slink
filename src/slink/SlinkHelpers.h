@@ -1,5 +1,4 @@
-#ifndef SLINKHELPERS_H
-#define SLINKHELPERS_H
+#pragma once
 
 #if _DEBUG
 	#define VERIFYDX(x)		\
@@ -15,4 +14,3 @@
 
 #define SAFE_RELEASE(p) { if ((p)) p->Release(); }
 
-#endif

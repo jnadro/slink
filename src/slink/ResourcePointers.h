@@ -1,5 +1,4 @@
-#ifndef RESOURCEPOINTERS_H
-#define RESOURCEPOINTERS_H
+#pragma once
 
 #include <comdef.h>
 #include <d3d11.h>
@@ -23,4 +22,3 @@ namespace Slink
 	_COM_SMARTPTR_TYPEDEF(ID3DBlob, __uuidof(ID3DBlob));
 }
 
-#endif

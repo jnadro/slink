@@ -1,5 +1,4 @@
-#ifndef RenderContext_h
-#define RenderContext_h
+#pragma once
 
 #include <windows.h>
 
@@ -18,4 +17,3 @@ namespace Slink
 	};
 }
 
-#endif

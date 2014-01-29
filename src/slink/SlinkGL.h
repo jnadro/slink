@@ -1,5 +1,4 @@
-#ifndef SlinkGL_h
-#define SlinkGL_h
+#pragma once
 
 #include "RenderContext.h"
 
@@ -18,4 +17,3 @@ namespace Slink
 	};
 }
 
-#endif

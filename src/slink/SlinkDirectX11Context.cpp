@@ -10,7 +10,6 @@ namespace Slink
 {
 	ID3D11DeviceContextPtr		Context			= nullptr;
 
-
 	static Shader						simple;
 	static Geometry						triangle;
 

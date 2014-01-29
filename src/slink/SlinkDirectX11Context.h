@@ -1,5 +1,4 @@
-#ifndef SlinkDirectX11_h
-#define SlinkDirectX11_h
+#pragma once
 
 #include "RenderContext.h"
 #include "ResourcePointers.h"
@@ -27,5 +26,3 @@ namespace Slink
 		ID3D11DevicePtr device;
 	};
 }
-
-#endif

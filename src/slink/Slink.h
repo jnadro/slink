@@ -1,5 +1,4 @@
-#ifndef WINDOW_H
-#define WINDOW_H
+#pragma once
 
 #include "RenderContext.h"
 
@@ -20,4 +19,3 @@ namespace Slink
 	void MainLoop();
 }
 
-#endif

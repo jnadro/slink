@@ -1,5 +1,4 @@
-#ifndef SlinkDirectX11Geometry_h
-#define SlinkDirectX11Geometry_h
+#pragma once
 
 #include <vector>
 #include "ResourcePointers.h"
@@ -28,5 +27,3 @@ namespace Slink
 	};
 }
 
-
-#endif

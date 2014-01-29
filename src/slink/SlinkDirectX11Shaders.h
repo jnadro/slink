@@ -1,5 +1,4 @@
-#ifndef SlinkDirectX11Shaders_h
-#define SlinkDirectX11Shaders_h
+#pragma once
 
 #include "ResourcePointers.h"
 #include <string>
@@ -26,4 +25,3 @@ namespace Slink
 	};
 }
 
-#endif
