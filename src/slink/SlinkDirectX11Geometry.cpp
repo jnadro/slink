@@ -1,6 +1,7 @@
 #include <d3d11.h>
 #include "SlinkDirectX11Geometry.h"
 #include "SlinkHelpers.h"
+#include <assert.h>
 
 namespace Slink
 {
