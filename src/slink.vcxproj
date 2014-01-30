@@ -97,11 +97,11 @@
     <ClCompile Include="..\src\slink\SlinkShaders.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\src\slink\RenderContext.h" />
+    <ClInclude Include="..\include\RenderContext.h" />
+    <ClInclude Include="..\include\Slink.h" />
     <ClInclude Include="..\src\slink\RenderDevice.h" />
     <ClInclude Include="..\src\slink\ResourcePointers.h" />
     <ClInclude Include="..\src\slink\ShaderStrings.cpp" />
-    <ClInclude Include="..\src\slink\Slink.h" />
     <ClInclude Include="..\src\slink\SlinkDirectX11Context.h" />
     <ClInclude Include="..\src\slink\SlinkDirectX11Geometry.h" />
     <ClInclude Include="..\src\slink\SlinkDirectX11Shaders.h" />

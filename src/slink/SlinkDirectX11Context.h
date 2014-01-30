@@ -24,5 +24,9 @@ namespace Slink
 		ID3D11RenderTargetViewPtr backBufferView;
 		IDXGISwapChainPtr swapChain;
 		ID3D11DevicePtr device;
+
+#if _DEBUG
+		ID3D11DebugPtr debug;
+#endif
 	};
 }

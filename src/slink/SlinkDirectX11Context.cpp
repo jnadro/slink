@@ -56,6 +56,11 @@ namespace Slink
 		VERIFYDX(D3D11CreateDeviceAndSwapChain(	nullptr, D3D_DRIVER_TYPE_HARDWARE, nullptr, Flags, FeatureLevels, NumFeatureLevels,
 												D3D11_SDK_VERSION, &sd, &swapChain, &device, nullptr, &Context));
 
+#if _DEBUG
+		device->QueryInterface(__uuidof(ID3D11Debug), reinterpret_cast<void**>(&debug));
+		VERIFYDX(debug->ReportLiveDeviceObjects(D3D11_RLDO_DETAIL));
+#endif
+
 		// Create a render target view
 		VERIFYDX(swapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), (void**)&backBuffer)); 
 		VERIFYDX(device->CreateRenderTargetView(backBuffer, nullptr, &backBufferView));
@@ -99,5 +104,9 @@ namespace Slink
 
 	void DirectX11RenderContext::Present() {
 		swapChain->Present(0, 0);
+
+#if _DEBUG
+		VERIFYDX(debug->ReportLiveDeviceObjects(D3D11_RLDO_DETAIL));
+#endif
 	}
 }

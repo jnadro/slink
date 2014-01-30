@@ -39,12 +39,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\src\slink\Slink.h">
-      <Filter>src\slink</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\slink\RenderContext.h">
-      <Filter>src\slink</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\slink\ShaderStrings.cpp">
       <Filter>src\slink</Filter>
     </ClInclude>
@@ -68,6 +62,12 @@
     </ClInclude>
     <ClInclude Include="..\src\slink\SlinkDirectX11Context.h">
       <Filter>src\slink\DirectX11</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Slink.h">
+      <Filter>src\slink</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\RenderContext.h">
+      <Filter>src\slink</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
