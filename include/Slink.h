@@ -12,6 +12,7 @@ namespace Slink
 	void Init(int argc, char* argv[]);
 	void InitWindow(UINT Width, UINT Height);
 	RenderContext* InitContext(RenderContextType context);
+	void Shutdown();
 
 	typedef void (*RenderFunctionPtr)(void);
 	void RenderFunction(RenderFunctionPtr);

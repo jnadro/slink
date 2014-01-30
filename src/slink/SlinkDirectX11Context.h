@@ -25,6 +25,9 @@ namespace Slink
 		IDXGISwapChainPtr swapChain;
 		ID3D11DevicePtr device;
 
+		class Shader* simple;
+		class Geometry* triangle;
+
 #if _DEBUG
 		ID3D11DebugPtr debug;
 #endif

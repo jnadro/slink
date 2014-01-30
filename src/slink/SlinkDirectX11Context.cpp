@@ -10,15 +10,14 @@ namespace Slink
 {
 	ID3D11DeviceContextPtr		Context			= nullptr;
 
-	static Shader						simple;
-	static Geometry						triangle;
-
 	DirectX11RenderContext::DirectX11RenderContext()
 		:	context(nullptr),
 			backBuffer(nullptr),
 			backBufferView(nullptr),
 			swapChain(nullptr),
-			device(nullptr)
+			device(nullptr),
+			simple(nullptr),
+			triangle(nullptr)
 	{
 	}
 
@@ -58,7 +57,7 @@ namespace Slink
 
 #if _DEBUG
 		device->QueryInterface(__uuidof(ID3D11Debug), reinterpret_cast<void**>(&debug));
-		VERIFYDX(debug->ReportLiveDeviceObjects(D3D11_RLDO_DETAIL));
+		//VERIFYDX(debug->ReportLiveDeviceObjects(D3D11_RLDO_DETAIL));
 #endif
 
 		// Create a render target view
@@ -66,13 +65,15 @@ namespace Slink
 		VERIFYDX(device->CreateRenderTargetView(backBuffer, nullptr, &backBufferView));
 
 		//Test Code!
-		simple.createFromString(std::string(VS), std::string(PS), device);
+		simple = new Shader();
+		simple->createFromString(std::string(VS), std::string(PS), device);
 
+		triangle = new Geometry();
 		float verts[9] = {-1.0f, -1.0f, 0.0f,
 						   0.0f,  1.0f, 0.0f,
 						   1.0f, -1.0f, 0.0f};
-		triangle.setVertexShader(simple.getBytecode());
-		triangle.createFromData(device, verts, 3); 
+		triangle->setVertexShader(simple->getBytecode());
+		triangle->createFromData(device, verts, 3); 
 	}
 
 	void DirectX11RenderContext::Terminate()
@@ -98,15 +99,15 @@ namespace Slink
 	}
 
 	void DirectX11RenderContext::Draw() {
-		simple.set();
-		triangle.draw();
+		simple->set();
+		triangle->draw();
 	}
 
 	void DirectX11RenderContext::Present() {
 		swapChain->Present(0, 0);
 
 #if _DEBUG
-		VERIFYDX(debug->ReportLiveDeviceObjects(D3D11_RLDO_DETAIL));
+		//VERIFYDX(debug->ReportLiveDeviceObjects(D3D11_RLDO_DETAIL));
 #endif
 	}
 }

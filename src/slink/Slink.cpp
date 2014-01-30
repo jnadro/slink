@@ -72,6 +72,12 @@ namespace Slink
 		return ctx;
 	}
 
+	void Shutdown()
+	{
+		delete ctx;
+		ctx = nullptr;
+	}
+
 	void RenderFunction(RenderFunctionPtr r) {
 		ClientRenderFunction = r;
 	}

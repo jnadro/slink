@@ -21,5 +21,7 @@ int main(int argc, char* argv[])
 	
 	Slink::MainLoop();
 
+	Slink::Shutdown();
+
 	return 0;
 }
