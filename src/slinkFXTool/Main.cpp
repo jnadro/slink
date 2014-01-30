@@ -1,4 +1,5 @@
-#include "slink\Slink.h"
+#include <Slink.h>
+#include <RenderContext.h>
 
 Slink::RenderContext* ctx = nullptr;
 
