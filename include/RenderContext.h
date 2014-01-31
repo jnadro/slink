@@ -1,13 +1,14 @@
 #pragma once
 
 #include <windows.h>
+#include <stdint.h>
 
 namespace Slink
 {
 	class RenderContext
 	{
 	public:
-		virtual void Init(HWND window, unsigned int WindowWidth, unsigned int WindowHeight) = 0;
+		virtual void Init(HWND window, uint32_t WindowWidth, uint32_t WindowHeight) = 0;
 		virtual void Terminate() = 0;
 
 		virtual void ClearScreen() = 0;

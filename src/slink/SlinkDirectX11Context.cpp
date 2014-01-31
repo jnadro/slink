@@ -25,7 +25,7 @@ namespace Slink
 	{
 	}
 
-	void DirectX11RenderContext::Init(HWND window, unsigned int WindowWidth, unsigned int WindowHeight)
+	void DirectX11RenderContext::Init(HWND window, uint32_t WindowWidth, uint32_t WindowHeight)
 	{
 		const UINT NumFeatureLevels = 3;
 

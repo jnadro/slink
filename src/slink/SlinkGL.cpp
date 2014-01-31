@@ -9,7 +9,7 @@ namespace Slink
 	static HGLRC hRC = nullptr;                           // Permanent Rendering Context
 	static HDC   hDC = nullptr;                           // Private GDI Device Context
 
-	void OpenGLRenderContext::Init(HWND window, unsigned int WindowWidth, unsigned int WindowHeight)
+	void OpenGLRenderContext::Init(HWND window, uint32_t WindowWidth, uint32_t WindowHeight)
 	{
 		hDC = GetDC(window);
 		assert(hDC);

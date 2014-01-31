@@ -1,5 +1,6 @@
 #pragma once
 
+#include <stdint.h>
 #include <string>
 
 namespace Slink
@@ -11,7 +12,7 @@ namespace Slink
 		~Object();
 
 	private:
-		unsigned int id;
+		uint32_t id;
 		std::string name;
 	};
 }

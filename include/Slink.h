@@ -1,5 +1,6 @@
 #pragma once
 
+#include <stdint.h>
 #include "RenderContext.h"
 
 namespace Slink
@@ -10,7 +11,7 @@ namespace Slink
 	};
 
 	void Init(int argc, char* argv[]);
-	void InitWindow(UINT Width, UINT Height);
+	void InitWindow(uint32_t Width, uint32_t Height);
 	RenderContext* InitContext(RenderContextType context);
 	void Shutdown();
 
