@@ -69,5 +69,11 @@
     <ClInclude Include="..\include\RenderContext.h">
       <Filter>src\slink</Filter>
     </ClInclude>
+    <ClInclude Include="slink\Scene.h">
+      <Filter>src\slink</Filter>
+    </ClInclude>
+    <ClInclude Include="slink\SlinkObject.h">
+      <Filter>src\slink</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

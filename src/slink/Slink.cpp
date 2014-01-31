@@ -9,6 +9,8 @@
 #include "SlinkDirectX11Context.h"
 #include "SlinkGL.h"
 #include "RenderContext.h"
+#include "Scene.h"
+#include "SlinkObject.h"
 
 namespace Slink
 {
