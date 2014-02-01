@@ -11,8 +11,11 @@ namespace Slink
 		Object();
 		~Object();
 
+	protected:
+		static uint32_t nextId;
+
 	private:
-		uint32_t id;
+		const uint32_t id;
 		std::string name;
 	};
 }

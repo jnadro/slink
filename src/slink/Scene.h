@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <memory>
 
 namespace Slink
 {
@@ -16,6 +17,6 @@ namespace Slink
 		void remove();
 
 	private:
-		std::vector<Object*> objects;
+		std::vector<std::shared_ptr<Object> > objects;
 	};
 }

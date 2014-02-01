@@ -37,6 +37,9 @@
     <ClCompile Include="..\src\slink\SlinkDirectX11Context.cpp">
       <Filter>src\slink\DirectX11</Filter>
     </ClCompile>
+    <ClCompile Include="slink\SlinkObject.cpp">
+      <Filter>src\slink</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\slink\ShaderStrings.cpp">

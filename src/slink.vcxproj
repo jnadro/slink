@@ -95,6 +95,7 @@
     <ClCompile Include="..\src\slink\SlinkDirectX11Shaders.cpp" />
     <ClCompile Include="..\src\slink\SlinkGL.cpp" />
     <ClCompile Include="..\src\slink\SlinkShaders.cpp" />
+    <ClCompile Include="slink\SlinkObject.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\RenderContext.h" />
