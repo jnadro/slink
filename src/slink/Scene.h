@@ -6,6 +6,7 @@
 namespace Slink
 {
 	class Object;
+	typedef std::shared_ptr<Object> ObjectPtr;
 
 	class Scene
 	{
@@ -13,10 +14,10 @@ namespace Slink
 		Scene();
 		~Scene();
 
-		void add(Object*);
+		void add(ObjectPtr);
 		void remove();
 
 	private:
-		std::vector<std::shared_ptr<Object> > objects;
+		std::vector<ObjectPtr> objects;
 	};
 }
