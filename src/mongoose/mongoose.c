@@ -2247,7 +2247,7 @@ static void open_file_endpoint(struct connection *conn, const char *path,
 
   if (!strcmp(conn->mg_conn.request_method, "HEAD")) {
     conn->flags |= CONN_SPOOL_DONE;
-    close(conn->endpoint.fd);
+    _close(conn->endpoint.fd);
     conn->endpoint_type = EP_NONE;
   }
 }
@@ -2387,7 +2387,7 @@ static int scan_directory(struct connection *conn, const char *dir,
 
     if (arr_ind < arr_size) {
       (*arr)[arr_ind].conn = conn;
-      (*arr)[arr_ind].file_name = strdup(dp->d_name);
+      (*arr)[arr_ind].file_name = _strdup(dp->d_name);
       stat(path, &(*arr)[arr_ind].st);
       arr_ind++;
     }
@@ -2613,7 +2613,7 @@ static int remove_directory(const char *dir) {
     }
   }
   closedir(dirp);
-  rmdir(dir);
+  _rmdir(dir);
 
   return 1;
 }
@@ -2696,7 +2696,7 @@ static void handle_put(struct connection *conn, const char *path) {
 
 static void forward_put_data(struct connection *conn) {
   struct iobuf *io = &conn->local_iobuf;
-  int n = write(conn->endpoint.fd, io->buf, io->len);
+  int n = _write(conn->endpoint.fd, io->buf, io->len);
   if (n > 0) {
     discard_leading_iobuf_bytes(io, n);
     conn->cl -= n;
@@ -3728,8 +3728,8 @@ static void close_local_endpoint(struct connection *conn) {
   DBG(("%p %d %d %d", conn, conn->endpoint_type, keep_alive, conn->flags));
 
   switch (conn->endpoint_type) {
-    case EP_PUT: close(conn->endpoint.fd); break;
-    case EP_FILE: close(conn->endpoint.fd); break;
+    case EP_PUT: _close(conn->endpoint.fd); break;
+    case EP_FILE: _close(conn->endpoint.fd); break;
     case EP_CGI: closesocket(conn->endpoint.cgi_sock); break;
     default: break;
   }
@@ -3759,7 +3759,7 @@ static void close_local_endpoint(struct connection *conn) {
 
 static void transfer_file_data(struct connection *conn) {
   char buf[IOBUF_SIZE];
-  int n = read(conn->endpoint.fd, buf, conn->cl < (int64_t) sizeof(buf) ?
+  int n = _read(conn->endpoint.fd, buf, conn->cl < (int64_t) sizeof(buf) ?
                (int) conn->cl : (int) sizeof(buf));
 
   if (is_error(n)) {
