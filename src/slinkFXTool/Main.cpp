@@ -1,5 +1,6 @@
 #include <Slink.h>
 #include <RenderContext.h>
+#include <mongoose\mongoose.h>
 
 Slink::RenderContext* ctx = nullptr;
 
