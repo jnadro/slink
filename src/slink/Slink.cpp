@@ -34,6 +34,7 @@ namespace Slink
 
 	void Init(int argc, char* argv[]) {
 		window = nullptr;
+		bShouldClose = false;
 	}
 
 	void InitWindow(UINT Width, UINT Height) {
