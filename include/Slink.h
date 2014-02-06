@@ -17,5 +17,6 @@ namespace Slink
 
 	void SwapBuffers();
 	void PollEvents();
+	bool WindowShouldClose();
 }
 

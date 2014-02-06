@@ -16,6 +16,7 @@ namespace Slink
 {
 	static HWND window = nullptr;
 	static UINT WindowWidth = 0, WindowHeight = 0;
+	static bool bShouldClose = false;
 
 	static RenderContext* ctx = nullptr;
 
@@ -86,8 +87,12 @@ namespace Slink
 
 	void PollEvents() {
 		MSG msg = {0};
-		GetMessage(&msg, nullptr, 0, 0);
+		bShouldClose = GetMessage(&msg, nullptr, 0, 0) == 0;
 		TranslateMessage(&msg);
 		DispatchMessage(&msg);
+	}
+
+	bool WindowShouldClose() {
+		return bShouldClose;
 	}
 }

@@ -62,7 +62,7 @@ int main(int argc, char* argv[])
 	mg_set_option(server, "listening_port", "8080");
 	mg_set_request_handler(server, index_html);
 	
-	while (true) {
+	while (!Slink::WindowShouldClose()) {
 
 		Render();
 
