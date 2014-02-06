@@ -15,9 +15,7 @@ namespace Slink
 	RenderContext* InitContext(RenderContextType context);
 	void Shutdown();
 
-	typedef void (*RenderFunctionPtr)(void);
-	void RenderFunction(RenderFunctionPtr);
-
-	void MainLoop();
+	void SwapBuffers();
+	void PollEvents();
 }
 

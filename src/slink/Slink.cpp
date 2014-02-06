@@ -15,7 +15,6 @@
 namespace Slink
 {
 	static HWND window = nullptr;
-	static RenderFunctionPtr ClientRenderFunction = nullptr;
 	static UINT WindowWidth = 0, WindowHeight = 0;
 
 	static RenderContext* ctx = nullptr;
@@ -34,7 +33,6 @@ namespace Slink
 
 	void Init(int argc, char* argv[]) {
 		window = nullptr;
-		ClientRenderFunction = nullptr;
 	}
 
 	void InitWindow(UINT Width, UINT Height) {
@@ -76,28 +74,20 @@ namespace Slink
 
 	void Shutdown()
 	{
+		ctx->Terminate();
+
 		delete ctx;
 		ctx = nullptr;
 	}
 
-	void RenderFunction(RenderFunctionPtr r) {
-		ClientRenderFunction = r;
+	void SwapBuffers() {
+		ctx->Present();
 	}
 
-	void MainLoop() {
-		// Ensure the user has specified a render function.
-		assert(ClientRenderFunction);
-
+	void PollEvents() {
 		MSG msg = {0};
-		while (GetMessage(&msg, nullptr, 0, 0)) {
-			TranslateMessage(&msg);
-			DispatchMessage(&msg);
-
-			ClientRenderFunction();
-
-			ctx->Present();
-		}
-
-		ctx->Terminate();
+		GetMessage(&msg, nullptr, 0, 0);
+		TranslateMessage(&msg);
+		DispatchMessage(&msg);
 	}
 }

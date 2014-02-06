@@ -31,6 +31,8 @@ void Render()
 	ctx->SetRenderTarget();
 	ctx->ClearScreen();
 	ctx->Draw();
+
+	Slink::SwapBuffers();
 }
 
 // This function will be called by mongoose on every new request
@@ -54,14 +56,18 @@ int main(int argc, char* argv[])
 {
 	Slink::Init(argc, argv);
 	Slink::InitWindow(Width, Height);
-	Slink::RenderFunction(Render);
 	ctx = Slink::InitContext(Slink::RenderContextType::DirectX11);
 
 	server = mg_create_server(nullptr);
 	mg_set_option(server, "listening_port", "8080");
 	mg_set_request_handler(server, index_html);
 	
-	Slink::MainLoop();
+	while (true) {
+
+		Render();
+
+		Slink::PollEvents();
+	}
 
 	Slink::Shutdown();
 
