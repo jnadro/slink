@@ -1,11 +1,14 @@
-var WebSocket = require('ws');
+var WebSocket = require('ws'),
+	server = 'http://localhost:8080';
 
-var ws = new WebSocket('http://localhost:8080');
-console.log('ready...');
+var ws = new WebSocket(server);
+
 ws.on('open', function() {
-	console.log('open');
-	ws.send('something');
+	console.log('connection made to '+ server);
+
+	ws.send('Handshake');
 });
+
 ws.on('message', function(data, flags) {
 	console.log(data);
 });
