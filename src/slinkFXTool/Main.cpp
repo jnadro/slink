@@ -46,10 +46,9 @@ int main(int argc, char* argv[])
 	mg_set_request_handler(server, index_html);
 	
 	while (!Slink::WindowShouldClose()) {
+		Slink::PollEvents();
 
 		Render();
-
-		Slink::PollEvents();
 	}
 
 	Slink::Shutdown();
