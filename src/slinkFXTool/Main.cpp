@@ -41,15 +41,24 @@ int main(int argc, char* argv[])
 	Slink::InitWindow(Width, Height);
 	ctx = Slink::InitContext(Slink::RenderContextType::DirectX11);
 
+	AllocConsole();
+	FILE* output;
+	freopen_s(&output, "CONOUT$", "wb", stdout);
+
 	server = mg_create_server(nullptr);
 	mg_set_option(server, "listening_port", "8080");
 	mg_set_request_handler(server, index_html);
+
+	puts("listening on port 8080...");
 	
 	while (!Slink::WindowShouldClose()) {
 		Slink::PollEvents();
 
 		Render();
 	}
+
+	fclose(stdout);
+	FreeConsole();
 
 	Slink::Shutdown();
 
