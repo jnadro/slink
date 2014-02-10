@@ -1,7 +1,9 @@
 var WebSocket = require('ws'),
-	server = 'http://localhost:8080';
+	url = 'http://localhost:8080';
+	Slink = require('./slink'),
+	Test = require('./test');
 
-var ws = new WebSocket(server);
+
 
 ws.on('open', function() {
 	console.log('connection made to '+ server);

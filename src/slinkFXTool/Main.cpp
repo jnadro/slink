@@ -25,6 +25,8 @@ void Render()
 static int index_html(struct mg_connection *conn) {
 
   if (conn->is_websocket) {
+	printf("Sending: %s \n", conn->content);
+
     // This handler is called for each incoming websocket frame, one or more
     // times for connection lifetime.
     // Echo websocket data back to the client.
