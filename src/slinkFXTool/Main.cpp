@@ -21,16 +21,32 @@ void Render()
 	Slink::SwapBuffers();
 }
 
+enum class Commands : unsigned int {
+	CreateTriangle
+};
+
 // This function will be called by mongoose on every new request
-static int index_html(struct mg_connection *conn) {
+static int receive(struct mg_connection* conn) {
 
   if (conn->is_websocket) {
-	printf("Sending: %s \n", conn->content);
 
-    // This handler is called for each incoming websocket frame, one or more
-    // times for connection lifetime.
-    // Echo websocket data back to the client.
-    mg_websocket_write(conn, 1, conn->content, conn->content_len);
+	long int command = strtol(conn->content, nullptr, 10);
+
+	switch (command)
+	{
+		case Commands::CreateTriangle:
+		{
+			const char* msg = "Create Triangle";
+			mg_websocket_write(conn, 1, msg, strlen(msg));
+			break;
+		}
+		default:
+		{
+			const char* errorMessage = "Unknown command.";
+			mg_websocket_write(conn, 1, errorMessage, strlen(errorMessage));
+		}
+	}
+
     return MG_CLIENT_CONTINUE;
   }
 
@@ -49,7 +65,7 @@ int main(int argc, char* argv[])
 
 	server = mg_create_server(nullptr);
 	mg_set_option(server, "listening_port", "8080");
-	mg_set_request_handler(server, index_html);
+	mg_set_request_handler(server, receive);
 
 	puts("listening on port 8080...");
 	

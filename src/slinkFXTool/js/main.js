@@ -17,5 +17,5 @@ ws.on('message', function(data, flags) {
 
 var b = document.getElementById('draw');
 b.onclick = function() {
-	ws.send("DrawCommand");
+	ws.send('0');
 };
