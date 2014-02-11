@@ -1,21 +1,20 @@
-var WebSocket = require('ws'),
+var Pipe = require('./js/pipe'),
 	url = 'http://localhost:8080';
-	Slink = require('./slink'),
-	Test = require('./test');
+	Slink = require('./slink');
 
-
-
-ws.on('open', function() {
-	console.log('connection made to '+ server);
-
-	ws.send('Handshake');
-});
-
-ws.on('message', function(data, flags) {
+var requestHandler = function(data, flags) {
 	console.log(data);
-});
+};
+
+var onOpen = function() {
+	console.log('connection made to '+ url);
+
+	Pipe.send('Handshake');
+};
+
+Pipe.open(url, onOpen, requestHandler);
 
 var b = document.getElementById('draw');
 b.onclick = function() {
-	ws.send('0');
+	Pipe.send('0');
 };
