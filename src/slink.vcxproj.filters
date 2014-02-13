@@ -78,5 +78,8 @@
     <ClInclude Include="slink\SlinkObject.h">
       <Filter>src\slink</Filter>
     </ClInclude>
+    <ClInclude Include="slink\SlinkDirectX11Device.h">
+      <Filter>src\slink\DirectX11</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

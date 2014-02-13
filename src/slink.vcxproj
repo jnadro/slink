@@ -109,6 +109,7 @@
     <ClInclude Include="..\src\slink\SlinkGL.h" />
     <ClInclude Include="..\src\slink\SlinkHelpers.h" />
     <ClInclude Include="slink\Scene.h" />
+    <ClInclude Include="slink\SlinkDirectX11Device.h" />
     <ClInclude Include="slink\SlinkObject.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

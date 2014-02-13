@@ -1,6 +1,9 @@
 #include <d3d11.h>
-#include "RenderDevice.h"
+#include "SlinkDirectX11Device.h"
 
 namespace Slink
 {
+	void DirectX11RenderDevice::createTriangleGeometry()
+	{
+	}
 }

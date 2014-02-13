@@ -57,7 +57,7 @@ int main(int argc, char* argv[])
 {
 	Slink::Init(argc, argv);
 	Slink::InitWindow(Width, Height);
-	ctx = Slink::InitContext(Slink::RenderContextType::DirectX11);
+	ctx = Slink::InitContext(Slink::RenderContextType::OpenGL);
 
 	AllocConsole();
 	FILE* output;
